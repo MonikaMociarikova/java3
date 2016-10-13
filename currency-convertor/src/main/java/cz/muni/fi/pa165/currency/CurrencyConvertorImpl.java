@@ -3,6 +3,7 @@ package cz.muni.fi.pa165.currency;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Currency;
+import javax.inject.Inject;
 
 
 /**
@@ -15,6 +16,7 @@ public class CurrencyConvertorImpl implements CurrencyConvertor {
     private final ExchangeRateTable exchangeRateTable;
     //private final Logger logger = LoggerFactory.getLogger(CurrencyConvertorImpl.class);
 
+    @Inject
     public CurrencyConvertorImpl(ExchangeRateTable exchangeRateTable) {
         this.exchangeRateTable = exchangeRateTable;
     }
@@ -35,6 +37,7 @@ public class CurrencyConvertorImpl implements CurrencyConvertor {
             if (exchangeRate == null) {
                 throw new UnknownExchangeRateException("ExchangeRate is unknown");
             }
+            System.out.println(exchangeRate.multiply(sourceAmount).setScale(2, RoundingMode.HALF_EVEN));
             return exchangeRate.multiply(sourceAmount).setScale(2, RoundingMode.HALF_EVEN);
         } catch (ExternalServiceFailureException ex) {
             throw new UnknownExchangeRateException("Error when fetching exchange rate", ex);
