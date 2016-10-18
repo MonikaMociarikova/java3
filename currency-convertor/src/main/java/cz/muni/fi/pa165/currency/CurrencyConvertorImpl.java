@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Currency;
 import javax.inject.Inject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -14,7 +16,7 @@ import javax.inject.Inject;
 public class CurrencyConvertorImpl implements CurrencyConvertor {
 
     private final ExchangeRateTable exchangeRateTable;
-    //private final Logger logger = LoggerFactory.getLogger(CurrencyConvertorImpl.class);
+    private final Logger logger = LoggerFactory.getLogger(CurrencyConvertorImpl.class);
 
     @Inject
     public CurrencyConvertorImpl(ExchangeRateTable exchangeRateTable) {
@@ -23,6 +25,7 @@ public class CurrencyConvertorImpl implements CurrencyConvertor {
 
     @Override
     public BigDecimal convert(Currency sourceCurrency, Currency targetCurrency, BigDecimal sourceAmount) {
+        logger.trace("Convert method called.");
         if (sourceCurrency == null) {
             throw new IllegalArgumentException("sourceCurrency is null");
         }
@@ -35,6 +38,7 @@ public class CurrencyConvertorImpl implements CurrencyConvertor {
         try {
             BigDecimal exchangeRate = exchangeRateTable.getExchangeRate(sourceCurrency, targetCurrency);
             if (exchangeRate == null) {
+                logger.warn("ExchangeRate not given.");
                 throw new UnknownExchangeRateException("ExchangeRate is unknown");
             }
             System.out.println(exchangeRate.multiply(sourceAmount).setScale(2, RoundingMode.HALF_EVEN));
