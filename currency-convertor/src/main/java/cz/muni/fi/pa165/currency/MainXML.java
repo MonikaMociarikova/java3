@@ -9,16 +9,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MainXML {
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
 
         
         ApplicationContext applicationContext 
                 = new ClassPathXmlApplicationContext("/WEB-INF/springContext.xml");
         
         CurrencyConvertor currencyConvertor = 
-                applicationContext.getBean(CurrencyConvertorImpl.class);
+                applicationContext.getBean(CurrencyConvertor.class);
         
         
         currencyConvertor.convert(Currency.getInstance("EUR"),Currency.getInstance("CZK"),BigDecimal.valueOf(1));
-    }*/
+    }
 }

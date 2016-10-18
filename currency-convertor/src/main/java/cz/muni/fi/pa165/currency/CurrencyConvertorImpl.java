@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Currency;
 import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,13 +15,14 @@ import org.slf4j.LoggerFactory;
  *
  * @author petr.adamek@embedit.cz
  */
+@Named
 public class CurrencyConvertorImpl implements CurrencyConvertor {
 
     private final ExchangeRateTable exchangeRateTable;
     private final Logger logger = LoggerFactory.getLogger(CurrencyConvertorImpl.class);
 
     @Inject
-    public CurrencyConvertorImpl(ExchangeRateTable exchangeRateTable) {
+    public CurrencyConvertorImpl(@Named("exchangeT")ExchangeRateTable exchangeRateTable) {
         this.exchangeRateTable = exchangeRateTable;
     }
 
@@ -44,6 +47,7 @@ public class CurrencyConvertorImpl implements CurrencyConvertor {
             System.out.println(exchangeRate.multiply(sourceAmount).setScale(2, RoundingMode.HALF_EVEN));
             return exchangeRate.multiply(sourceAmount).setScale(2, RoundingMode.HALF_EVEN);
         } catch (ExternalServiceFailureException ex) {
+            logger.error("External service failure exception thrown " + ex);
             throw new UnknownExchangeRateException("Error when fetching exchange rate", ex);
         }
     }

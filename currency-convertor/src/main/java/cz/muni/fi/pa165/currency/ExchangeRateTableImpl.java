@@ -7,7 +7,7 @@ import javax.inject.Named;
 /**
  * Created by xmociar on 6.10.16.
  */
-@Named
+@Named("exchangeT")
 public class ExchangeRateTableImpl implements ExchangeRateTable {
     @Override
     public BigDecimal getExchangeRate(Currency sourceCurrency, Currency targetCurrency) throws ExternalServiceFailureException {
