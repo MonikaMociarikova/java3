@@ -1,0 +1,358 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Cannot create GC thread. Out of system resources.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (gcTaskThread.cpp:48), pid=13781, tid=140374105491200
+#
+# JRE version:  (8.0_66-b17) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.66-b17 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fab5c008000):  JavaThread "Unknown thread" [_thread_in_vm, id=13784, stack(0x00007fab64a18000,0x00007fab64b19000)]
+
+Stack: [0x00007fab64a18000,0x00007fab64b19000],  sp=0x00007fab64b175e0,  free space=1021k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xab9a1a]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x4f9e0b]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x5d37bf]  GCTaskThread::GCTaskThread(GCTaskManager*, unsigned int, unsigned int)+0x15f
+V  [libjvm.so+0x5d257b]  GCTaskManager::initialize()+0x3ab
+V  [libjvm.so+0x93dd3d]  ParallelScavengeHeap::initialize()+0x34d
+V  [libjvm.so+0xa8224b]  Universe::initialize_heap()+0xfb
+V  [libjvm.so+0xa825be]  universe_init()+0x3e
+V  [libjvm.so+0x6388f5]  init_globals()+0x65
+V  [libjvm.so+0xa667be]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x23e
+V  [libjvm.so+0x6cce14]  JNI_CreateJavaVM+0x74
+C  [libjli.so+0x745e]  JavaMain+0x9e
+C  [libpthread.so.0+0x76fa]  start_thread+0xca
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007fab5c008000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=13784, stack(0x00007fab64a18000,0x00007fab64b19000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 00:2a 7902806                            /packages/run.64/jdk-1.8.0/jdk1.8.0_66/bin/java
+00600000-00601000 rw-p 00000000 00:2a 7902806                            /packages/run.64/jdk-1.8.0/jdk1.8.0_66/bin/java
+01581000-015a2000 rw-p 00000000 00:00 0                                  [heap]
+6c9e00000-6d4380000 rw-p 00000000 00:00 0 
+6d4380000-76df80000 ---p 00000000 00:00 0 
+76df80000-773200000 rw-p 00000000 00:00 0 
+773200000-7c0000000 ---p 00000000 00:00 0 
+7fab4d000000-7fab4d270000 rwxp 00000000 00:00 0 
+7fab4d270000-7fab5c000000 ---p 00000000 00:00 0 
+7fab5c000000-7fab5c405000 rw-p 00000000 00:00 0 
+7fab5c405000-7fab60000000 ---p 00000000 00:00 0 
+7fab60ebe000-7fab61054000 rw-p 00000000 00:00 0 
+7fab61054000-7fab61055000 ---p 00000000 00:00 0 
+7fab61055000-7fab61155000 rw-p 00000000 00:00 0 
+7fab61155000-7fab61156000 ---p 00000000 00:00 0 
+7fab61156000-7fab61256000 rw-p 00000000 00:00 0 
+7fab61256000-7fab61257000 ---p 00000000 00:00 0 
+7fab61257000-7fab613aa000 rw-p 00000000 00:00 0 
+7fab613aa000-7fab61878000 ---p 00000000 00:00 0 
+7fab61878000-7fab618cb000 rw-p 00000000 00:00 0 
+7fab618cb000-7fab61d98000 ---p 00000000 00:00 0 
+7fab61d98000-7fab61dc2000 rw-p 00000000 00:00 0 
+7fab61dc2000-7fab62029000 ---p 00000000 00:00 0 
+7fab62029000-7fab62034000 rw-p 00000000 00:00 0 
+7fab62034000-7fab623ea000 ---p 00000000 00:00 0 
+7fab623ea000-7fab62404000 r-xp 00000000 00:2a 8239974                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libzip.so
+7fab62404000-7fab62604000 ---p 0001a000 00:2a 8239974                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libzip.so
+7fab62604000-7fab62605000 rw-p 0001a000 00:2a 8239974                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libzip.so
+7fab62605000-7fab6262f000 r-xp 00000000 00:2a 8239969                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libjava.so
+7fab6262f000-7fab6282f000 ---p 0002a000 00:2a 8239969                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libjava.so
+7fab6282f000-7fab62831000 rw-p 0002a000 00:2a 8239969                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libjava.so
+7fab62831000-7fab6283e000 r-xp 00000000 00:2a 8239973                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libverify.so
+7fab6283e000-7fab62a3e000 ---p 0000d000 00:2a 8239973                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libverify.so
+7fab62a3e000-7fab62a40000 rw-p 0000d000 00:2a 8239973                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/libverify.so
+7fab62a40000-7fab62a47000 r-xp 00000000 08:01 1439016                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fab62a47000-7fab62c46000 ---p 00007000 08:01 1439016                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fab62c46000-7fab62c47000 r--p 00006000 08:01 1439016                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fab62c47000-7fab62c48000 rw-p 00007000 08:01 1439016                    /lib/x86_64-linux-gnu/librt-2.23.so
+7fab62c48000-7fab62d50000 r-xp 00000000 08:01 1439013                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fab62d50000-7fab62f4f000 ---p 00108000 08:01 1439013                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fab62f4f000-7fab62f50000 r--p 00107000 08:01 1439013                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fab62f50000-7fab62f51000 rw-p 00108000 08:01 1439013                    /lib/x86_64-linux-gnu/libm-2.23.so
+7fab62f51000-7fab63c0f000 r-xp 00000000 00:2a 8239952                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/server/libjvm.so
+7fab63c0f000-7fab63e0e000 ---p 00cbe000 00:2a 8239952                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/server/libjvm.so
+7fab63e0e000-7fab63ee7000 rw-p 00cbd000 00:2a 8239952                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/jre/lib/amd64/server/libjvm.so
+7fab63ee7000-7fab63f2b000 rw-p 00000000 00:00 0 
+7fab63f2b000-7fab640eb000 r-xp 00000000 08:01 1439021                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fab640eb000-7fab642ea000 ---p 001c0000 08:01 1439021                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fab642ea000-7fab642ee000 r--p 001bf000 08:01 1439021                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fab642ee000-7fab642f0000 rw-p 001c3000 08:01 1439021                    /lib/x86_64-linux-gnu/libc-2.23.so
+7fab642f0000-7fab642f4000 rw-p 00000000 00:00 0 
+7fab642f4000-7fab642f7000 r-xp 00000000 08:01 1439022                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7fab642f7000-7fab644f6000 ---p 00003000 08:01 1439022                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7fab644f6000-7fab644f7000 r--p 00002000 08:01 1439022                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7fab644f7000-7fab644f8000 rw-p 00003000 08:01 1439022                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7fab644f8000-7fab6450d000 r-xp 00000000 00:2a 8239684                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/lib/amd64/jli/libjli.so
+7fab6450d000-7fab6470d000 ---p 00015000 00:2a 8239684                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/lib/amd64/jli/libjli.so
+7fab6470d000-7fab6470e000 rw-p 00015000 00:2a 8239684                    /packages/run.64/jdk-1.8.0/jdk1.8.0_66/lib/amd64/jli/libjli.so
+7fab6470e000-7fab64726000 r-xp 00000000 08:01 1439020                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fab64726000-7fab64925000 ---p 00018000 08:01 1439020                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fab64925000-7fab64926000 r--p 00017000 08:01 1439020                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fab64926000-7fab64927000 rw-p 00018000 08:01 1439020                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7fab64927000-7fab6492b000 rw-p 00000000 00:00 0 
+7fab6492b000-7fab64951000 r-xp 00000000 08:01 1439017                    /lib/x86_64-linux-gnu/ld-2.23.so
+7fab649e3000-7fab64a18000 r--s 00000000 08:01 1179333                    /var/cache/nscd/passwd
+7fab64a18000-7fab64a1b000 ---p 00000000 00:00 0 
+7fab64a1b000-7fab64b1d000 rw-p 00000000 00:00 0 
+7fab64b44000-7fab64b4c000 rw-s 00000000 08:06 524176                     /tmp/hsperfdata_xmociar/13781
+7fab64b4c000-7fab64b4d000 rw-p 00000000 00:00 0 
+7fab64b4d000-7fab64b4e000 r--p 00000000 00:00 0 
+7fab64b4e000-7fab64b50000 rw-p 00000000 00:00 0 
+7fab64b50000-7fab64b51000 r--p 00025000 08:01 1439017                    /lib/x86_64-linux-gnu/ld-2.23.so
+7fab64b51000-7fab64b52000 rw-p 00026000 08:01 1439017                    /lib/x86_64-linux-gnu/ld-2.23.so
+7fab64b52000-7fab64b53000 rw-p 00000000 00:00 0 
+7ffc2ee41000-7ffc2ee63000 rw-p 00000000 00:00 0                          [stack]
+7ffc2eeaf000-7ffc2eeb1000 r--p 00000000 00:00 0                          [vvar]
+7ffc2eeb1000-7ffc2eeb3000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=/usr/local/share/Modules/netbeans-8.1/java/maven/bin/m2.conf -Dmaven.home=/usr/local/share/Modules/netbeans-8.1/java/maven 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -Dexec.args=-classpath %classpath cz.fi.muni.pa165.MainJavaSe -Dexec.executable=/packages/run.64/jdk-1.8.0/current/bin/java -Dexec.classpathScope=runtime -Dmaven.ext.class.path=/usr/local/share/Modules/netbeans-8.1/java/maven-nblib/netbeans-eventspy.jar org.codehaus.mojo:exec-maven-plugin:1.2.1:exec
+java_class_path (initial): /usr/local/share/Modules/netbeans-8.1/java/maven/boot/plexus-classworlds-2.4.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/packages/run.64/jdk-1.8.0/current
+JRE_HOME=/packages/run.64/jdk-1.8.0/current/jre
+PATH=/usr/local/share/Modules/netbeans-8.1/java/maven/bin:/usr/local/share/Modules/netbeans-8.1/bin:/packages/run.64/jdk-1.8.0/current/bin:/packages/run.64/jdk-1.8.0/current/db/bin:/usr/sbin:/sbin:/usr/etc:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/share/man:/usr/X11R6/man:/usr/local/man:/packages/run/modules-2.0/bin:/packages/run.64/links/bin:/packages/run/links/bin
+LD_LIBRARY_PATH=/packages/run.64/jdk-1.8.0/current/bin/../jre/lib/amd64:/packages/run.64/jdk-1.8.0/current/bin/../jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xaba2a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xaba2a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x917710], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x918d40], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_IGN, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.1 LTS"
+
+uname:Linux 4.4.0-45-generic #66-Ubuntu SMP Wed Oct 19 14:12:37 UTC 2016 x86_64
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 512, NOFILE 65536, AS infinity
+load average:0.28 0.25 0.30
+
+/proc/meminfo:
+MemTotal:       16126848 kB
+MemFree:         7850396 kB
+MemAvailable:   11025140 kB
+Buffers:          119308 kB
+Cached:          3516388 kB
+SwapCached:            0 kB
+Active:          5257756 kB
+Inactive:        2734044 kB
+Active(anon):    4358456 kB
+Inactive(anon):   272684 kB
+Active(file):     899300 kB
+Inactive(file):  2461360 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               412 kB
+Writeback:             0 kB
+AnonPages:       4355848 kB
+Mapped:          1409600 kB
+Shmem:            275052 kB
+Slab:             168968 kB
+SReclaimable:     131496 kB
+SUnreclaim:        37472 kB
+KernelStack:       11760 kB
+PageTables:        43012 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     8063424 kB
+Committed_AS:   10104260 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   3371008 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      138692 kB
+DirectMap2M:    16328704 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2674.250
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 6385.27
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 3506.250
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 6385.27
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 2279.375
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 6385.27
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3470 CPU @ 3.20GHz
+stepping	: 9
+microcode	: 0x15
+cpu MHz		: 3135.250
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm epb tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts
+bugs		:
+bogomips	: 6385.27
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 16126848k(7850396k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.66-b17) for linux-amd64 JRE (1.8.0_66-b17), built on Oct  6 2015 17:28:34 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Thu Oct 20 13:37:27 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
