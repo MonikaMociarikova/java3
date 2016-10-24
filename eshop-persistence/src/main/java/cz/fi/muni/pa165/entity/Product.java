@@ -2,16 +2,11 @@ package cz.fi.muni.pa165.entity;
 
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "ESHOP_PRODUCTS")
 public class Product {
 		
             @Id
@@ -63,10 +58,13 @@ public class Product {
         return id;
     }
 
+    public void setId(Long id) {this.id = id; }
+
+
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.name);
+        hash = 89 * hash + Objects.hashCode(getName());
         return hash;
     }
 
@@ -78,19 +76,21 @@ public class Product {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (!getClass().isInstance(obj)) {
             return false;
         }
+        /*if (getClass() != obj.getClass()) {
+            return false;
+        }*/
         final Product other = (Product) obj;
-        if (!Objects.equals(this.name, other.name)) {
+        if (!Objects.equals(getName(), other.getName())) {
             return false;
         }
         return true;
     }
-            
-            
-            
-            
+
+
+
 }
 
 

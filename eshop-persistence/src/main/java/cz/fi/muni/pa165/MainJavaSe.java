@@ -25,7 +25,7 @@ public class MainJavaSe {
 		emf = Persistence.createEntityManagerFactory("default");
 
 		// BEGIN YOUR CODE
-		task06();
+		task08();
 		// END YOUR CODE
 		emf.close();
 	}
@@ -178,8 +178,7 @@ public class MainJavaSe {
 		
 		//TODO after you implement equals nad hashCode, you can uncomment the code below. It will try
 		// to check whether you are doing everything correctly. 
-	
-/* TODO uncomment the following (it should work if you were successfull with task08)
+
 
 
 		class MockProduct extends Product {
@@ -217,7 +216,7 @@ public class MainJavaSe {
 		if (mp.getNameCalled){
 			System.out.println("CORRECT");
 		} else System.out.println("INCORRECT!");
-		 */
+
 	
 	}
 
