@@ -32,7 +32,9 @@ public class Task01 extends AbstractTestNGSpringContextTests{
 		//TODO under this line: create a second entity manager in categoryTest, use find method to find the category and assert its name.
                 
                 EntityManager em2 = emf.createEntityManager();
-               
+                Category foundCategory = em2.find(Category.class, cat.getId());
+                Assert.assertEquals(foundCategory.getName(), "Test");
+                
 	}
 
 }

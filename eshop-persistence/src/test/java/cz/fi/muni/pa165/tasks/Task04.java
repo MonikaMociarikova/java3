@@ -94,7 +94,7 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 	 */
 	@Test
 	public void findProducts(){
-		List<Product> found = em.createQuery("TODO",Product.class).getResultList();
+		List<Product> found = em.createQuery("select p from product",Product.class).getResultList();
 		Assert.assertEquals(found.size(), 4);
 	}
 	
@@ -103,8 +103,8 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 	 */
 	@Test
 	public void findProductByName(){
-		List<Product> found = em.createQuery("TODO",Product.class).setParameter("name", "Flashlight").getResultList();
-		Assert.assertEquals(found.size(), 1);
+		List<Product> found = em.createQuery("select p from product where name = :name",Product.class).setParameter("name", "Flashlight").getResultList();
+                Assert.assertEquals(found.size(), 1);
 		Assert.assertEquals(found.get(0).getName(), "Flashlight");
 		Assert.assertEquals(found.get(0).getColor(), Color.RED);
 	}
@@ -115,7 +115,7 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 	 */
 	@Test
 	public void countProducts() {
-		Long count = em.createQuery("TODO",Long.class).getSingleResult();
+		Long count = em.createQuery("select count(p) from product",Long.class).getSingleResult();
 			
 		Assert.assertEquals(count, new Long(4));
 	}
@@ -125,7 +125,7 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 	 */
 	@Test
 	public void findProductsWithNonEmtpycategory() {
-		List<Product> found = em.createQuery("TODO",Product.class).getResultList();
+		List<Product> found = em.createQuery("select p from product where categories is not empty",Product.class).getResultList();
 
 		Assert.assertEquals(found.size(), 3);
 	}
@@ -135,7 +135,7 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 	 */
 	@Test
 	public void findProductsWithCategories(){
-		List<Product> found = em.createQuery("TODO",Product.class).getResultList();
+		List<Product> found = em.createQuery("select p from product p join fetch p.categories ",Product.class).getResultList();
 		
 		Assert.assertEquals(found.size(), 4);
 		//The following will throw exception in case the categories are not fetched
@@ -153,7 +153,7 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 	 */
 	@Test
 	public void groupByAndOrderBy(){
-		List<Object[]> found= em.createQuery("TODO", Object[].class).getResultList();
+		List<Object[]> found= em.createQuery("select p,p.id from product group by color order by color", Object[].class).getResultList();
 		
 		Assert.assertEquals(found.size(), 2);
 		Assert.assertEquals(((Color) found.get(0)[0]), Color.RED);
@@ -185,7 +185,7 @@ public class Task04 extends AbstractTestNGSpringContextTests {
 		cal.setTime(new Date());
 		cal.add(Calendar.DAY_OF_MONTH, -1);
 		
-		List<Product> products= em.createQuery("TODO",Product.class).setParameter("date", cal.getTime()).getResultList();
+		List<Product> products= em.createQuery("select p from product where date = :date",Product.class).setParameter("date", cal.getTime()).getResultList();
 		
 		Assert.assertEquals(products.size(),1);
 		Assert.assertEquals(products.get(0).getName(), "Plate");

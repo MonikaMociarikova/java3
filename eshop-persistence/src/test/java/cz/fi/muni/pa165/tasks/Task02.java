@@ -24,6 +24,12 @@ public class Task02 extends AbstractTestNGSpringContextTests {
 	@PersistenceUnit
 	private EntityManagerFactory emf;
 
+        @BeforeClass
+        private void beforeTests(){
+            Category electro = new Category();
+            electro.setName("Electro");
+            
+        }
 	
 	private void assertContainsCategoryWithName(Set<Category> categories,
 			String expectedCategoryName) {
