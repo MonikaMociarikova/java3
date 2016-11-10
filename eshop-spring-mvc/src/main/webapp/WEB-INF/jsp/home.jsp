@@ -17,5 +17,15 @@
               role="button">Go shopping</a></p>
     </div>
 
+
+    <div class="row">
+        <c:forEach begin="1" end="12" var="i">
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-1">
+            <button>Button <c:out value="${i}"/> </button>
+            </div>
+        </c:forEach>
+    </div>
+
+
 </jsp:attribute>
 </my:pagetemplate>
