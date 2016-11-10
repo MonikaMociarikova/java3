@@ -82,13 +82,13 @@ public class Product {
         /*if (getClass() != obj.getClass()) {
             return false;
         }*/
+
         final Product other = (Product) obj;
         if (!Objects.equals(getName(), other.getName())) {
             return false;
         }
         return true;
     }
-
 
 
 }
